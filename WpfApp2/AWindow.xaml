@@ -31,6 +31,11 @@
             <TextBlock Text="Password:" VerticalAlignment="Center"/>
             <TextBox x:Name="Pass" Margin="10,0" VerticalAlignment="Center" Width="172"/>
         </StackPanel>
+        <Button Content="Register" x:Name="Reg" Margin="0,276,0,0" VerticalAlignment="Top" Click="Reg_Click" Height="52" Width="152">
+            <hc:Poptip.Instance>
+                <hc:Poptip Content="Нажми если хочешь зарегаться" PlacementType="TopRight"/>
+            </hc:Poptip.Instance>
+        </Button>
 
 
 

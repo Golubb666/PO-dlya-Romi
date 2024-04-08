@@ -32,10 +32,10 @@ namespace WpfApp2
         {
             string selectedRole = "";
 
-            using (var con = new SqlConnection("Data Source=PLABSQLw19s1,49172;Initial Catalog=KаndK;Integrated Security=True"))
+            using (var con = new SqlConnection("Data Source=PLABSQLw19s1,49172;Initial Catalog=PerekupKV;Integrated Security=True"))
             {
                 con.Open();
-                var cmd = new SqlCommand($"SELECT [Role] FROM [vvod] WHERE [Login]='{Login.Text}' AND [Pass]='{pass.Password}'", con);
+                var cmd = new SqlCommand($"SELECT [Roles] FROM [Userss] WHERE [Login]='{Login.Text}' AND [Password]='{pass.Password}'", con);
                 var userRole = cmd.ExecuteScalar() as string;
 
                 if (string.IsNullOrEmpty(userRole))
