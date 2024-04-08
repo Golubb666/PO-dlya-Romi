@@ -48,13 +48,21 @@ namespace WpfApp2
         {
 
             {
+
+                
                 using (var con = new SqlConnection("Data Source=PLABSQLw19s1,49172;Initial Catalog=PerekupKV;Integrated Security=True"))
                 {
                     con.Open();
-                    var cmd = new SqlCommand($"INSERT INTO [Userss] ([Roles], [Login], [Password], [Name], [Surname], [Phone_Number],[ApartamentsID]) VALUES ('User', '{Log.Text}', '{Pass.Text}', '{Name.Text}', '{SurName.Text}', '{Phone.Text}', '1')", con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Пользователь успешно создан.Пройдите авторизацию.");
-                    this.Close();
+                    if ((Log.Text != "") && (Pass.Text != ""))
+                    {
+                        var cmd = new SqlCommand($"INSERT INTO [Userss] ([Roles], [Login], [Password], [Name], [Surname], [Phone_Number]) VALUES ('User', '{Log.Text}', '{Pass.Text}', '{Name.Text}', '{SurName.Text}', '{Phone.Text}', '1')", con);
+                        cmd.ExecuteScalar();
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Заполните поля!");
+                    }
+                   
                     
                 }
             }
